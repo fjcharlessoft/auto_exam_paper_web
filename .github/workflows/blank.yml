@@ -76,7 +76,7 @@ jobs:
       - name: git clone 
         run: |
           git clone ${{ github.event.client_payload.gitaddress }}
-          git clone git@gitee.com:charlesabc/myutils.git ./caspaper/myutils
+          git clone git@gitee.com:charlesabc/myutils.git ./ ${{ github.event.client_payload.project_name }}/myutils
           ls ./${{ github.event.client_payload.project_name }}
 
       - name: Get current branch name
