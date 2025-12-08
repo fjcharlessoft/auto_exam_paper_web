@@ -54,7 +54,14 @@ jobs:
           key: ssh-known-hosts-${{ runner.os }}-v1
           restore-keys: |
             ssh-known-hosts-${{ runner.os }}-
-
+            
+      - name: show payload
+        run: |
+          echo "Client payload: ${{ toJson(github.event.client_payload) }}"
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
 
       - name: Add Gitee ssh-key to known hosts
         shell: bash
