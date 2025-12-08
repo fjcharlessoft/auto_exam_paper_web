@@ -103,8 +103,8 @@ jobs:
         working-directory: ./${{ github.event.client_payload.project_name }}
 
 
-
-          
+      - name: build
+        run: |
           # 分发到资源服务器
           sh ${WORKSPACE}/myutils/auto_exam/paper-web/scripts/publish_web.sh ${JENKINS_ENV_PATH} || CheckLastResult
 
