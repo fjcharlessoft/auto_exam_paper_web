@@ -73,6 +73,12 @@ jobs:
             gitee.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEKxHSJ7084RmkJ4YdEi5tngynE8aZe2uEoVVsB/OvYN
           Eof
 
+      - name: git clone 
+        run: |
+          git clone ${{ github.event.client_payload.gitaddress }}
+          git clone git@gitee.com:charlesabc/myutils.git ./caspaper/myutils
+          ls ./${{ github.event.client_payload.project_name }}
+
       - name: Get current branch name
         id: get_branch
         run: |
@@ -96,11 +102,7 @@ jobs:
           cat $WORK_ROOT_DIR/.JENKINS.env           
         working-directory: ./${{ github.event.client_payload.project_name }}
 
-      - name: git clone 
-        run: |
-          git clone ${{ github.event.client_payload.gitaddress }}
-          git clone git@gitee.com:charlesabc/myutils.git ./caspaper/myutils
-          ls ./${{ github.event.client_payload.project_name }}
+
 
           
           # 分发到资源服务器
