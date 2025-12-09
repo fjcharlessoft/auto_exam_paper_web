@@ -113,6 +113,8 @@ jobs:
           git clone ${{ github.event.client_payload.gitaddress }}
           git clone git@gitee.com:charlesabc/myutils.git ./${{ github.event.client_payload.project_name }}/myutils
           ls ./${{ github.event.client_payload.project_name }}
+          echo "pwd"
+          echo ${PWD}
 
       - name: Get current branch name
         id: get_branch
