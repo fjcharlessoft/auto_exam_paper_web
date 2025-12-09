@@ -146,11 +146,11 @@ jobs:
           cat $WORK_ROOT_DIR/.JENKINS.env           
         working-directory: ./${{ github.event.client_payload.project_name }}
 
-      - name: Setup Debug Session
-        uses: mxschmitt/action-tmate@v3
-        timeout-minutes: 15
-        with:
-          detached: true
+      # - name: Setup Debug Session
+      #   uses: mxschmitt/action-tmate@v3
+      #   timeout-minutes: 15
+      #   with:
+      #     detached: true
           
       - name: build
         run: |
@@ -166,4 +166,4 @@ jobs:
 
           sh ${WORKSPACE}/myutils/auto_exam/paper-web/scripts/build_web.sh ${JENKINS_ENV_PATH} || CheckLastResult
 
-          
+          echo "=========================="
