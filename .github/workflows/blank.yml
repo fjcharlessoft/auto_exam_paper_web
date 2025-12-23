@@ -168,6 +168,10 @@ jobs:
 
           # 部署教师端web
           
-          sh ${WORKSPACE}/myutils/auto_exam/paper-web/scripts/develop/deploy_web.sh ${JENKINS_ENV_PATH} || CheckLastResult
+          bash ${WORKSPACE}/myutils/auto_exam/paper-web/scripts/develop/deploy_web.sh ${JENKINS_ENV_PATH} || CheckLastResult
+
+
+          # 部署demo
+          bash ${WORKSPACE}/myutils/auto_exam/paper-web/scripts/autoexam/deploy_web.sh ${JENKINS_ENV_PATH} || CheckLastResult
 
           echo "=========================="
